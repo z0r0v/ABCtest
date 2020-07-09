@@ -12,6 +12,7 @@
   "dependencies": {
     "datatables.net": "^1.10.21",
     "datatables.net-dt": "^1.10.21",
+    "sass-mq": "^5.0.1",
     "vue": "^2.5.11"
   },
   "browserslist": [

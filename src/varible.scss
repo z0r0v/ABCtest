@@ -1,0 +1,19 @@
+@import "~sass-mq";
+$mq-breakpoints: (
+  mobile:  320px,
+  desktop: 980px,
+);
+
+$mobile: 320px;
+
+//colors
+$bg-color-master: #203078;
+$main-color-white: #FFFFFF;
+$text-color-plum: #9BACF5;
+$text-color-green: #54AA4F;
+$text-color-blue: #203078;
+$border-color-grey: #C4C4C4;
+$button-color-green: #2F9E31;
+$button-color-shadow: #308432;
+//fonts
+$app-font: 'Roboto';
