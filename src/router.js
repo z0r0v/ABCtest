@@ -13,11 +13,11 @@ export default new Router({
       component: firtsPage
     },
     {
-      path:'/secondPage',
+      path: '/secondPage',
       component: secondpage,
     },
     {
-      path:'/thirdpage',
+      path: '/thirdpage',
       component: thirdpage,
     }
 

@@ -68,23 +68,14 @@
             },
 
         },
-        // methods: {
-        //     getDates: function (element) {
-        //         let item = element;
-        //         if(item < 10) {
-        //             return `0${item}`;
-        //         }
-        //         return item;
-        //     }
-        // }
-
-
     }
 </script>
 
 <style lang="scss">
   @import '../../varible.scss';
   .date-start {
+    width: 320px;
+    margin: 0 auto;
     background-color: $main-color-white;
     h3 {
       text-align: center;

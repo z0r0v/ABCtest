@@ -25,6 +25,10 @@
 
 <style lang="scss">
   @import '../../varible.scss';
+  .footer-box {
+    margin: 0 auto;
+    width: 320px;
+  }
   .footer-box__items {
     margin: 0 auto;
     width: 300px;
@@ -46,11 +50,9 @@
         font-size: 14px;
         line-height: 16px;
       }
-
       h3 {
         font-weight: bold;
       }
-
     }
     .first {
       &::before {

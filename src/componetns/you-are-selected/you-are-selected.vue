@@ -1,7 +1,7 @@
 <template>
-<p class="you-are-selected">
-  {{selected}}
-</p>
+  <p class="you-are-selected">
+    {{selected}}
+  </p>
 </template>
 
 <script>
@@ -17,10 +17,12 @@
 
 <style lang="scss">
   @import '../../varible.scss';
-.you-are-selected {
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  color: $text-color-plum;
-}
+  .you-are-selected {
+    width: 311px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: $text-color-plum;
+  }
 </style>
