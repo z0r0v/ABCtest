@@ -1,7 +1,9 @@
 <template>
-  <button class="button">
+  <form action="/secondPage">
+  <button class="button" type="submit">
     {{buttonText}}
   </button>
+  </form>
 </template>
 
 <script>
@@ -10,6 +12,7 @@
         data() {
             return {
                 buttonText: 'Принять участие',
+                link: '/secondPage',
             }
         }
     }

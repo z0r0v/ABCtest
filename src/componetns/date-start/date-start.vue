@@ -1,7 +1,7 @@
 <template>
- <div class="date-start">
-  <h3>{{allText}} по <span>{{this.dateEnd}}</span> </h3>
- </div>
+  <div class="date-start">
+    <h3>{{text}}{{getDate}}.{{getMonth}}.{{getYear}} по <span>{{getEndDate}}.{{getEndMonth}}.{{getEndYear}}</span></h3>
+  </div>
 </template>
 
 <script>
@@ -10,25 +10,81 @@
         data() {
             return {
                 text: 'Дата проведения: c ',
-                dateStart: new Date('2019.10.24').toLocaleDateString().replace(/[/]/g, "."),
-                dateEnd: new Date("2019 10 31").toLocaleDateString().replace(/[/]/g, "."),
+                startDay: new Date(),
             }
         },
         computed: {
-            allText: function () {
-                return `${this.text} ${this.dateStart}`
+            getDate: function () {
+                let item = this.startDay.getDate();
+                if (item < 10) {
+                    return `0${item}`;
+                }
+                return item;
             },
+            getMonth: function () {
+                let item = this.startDay.getMonth();
+                if (item < 10) {
+                    return `0${item}`;
+                }
+                return item;
+            },
+            getYear: function () {
+                let item = this.startDay.getFullYear();
+                if (item < 10) {
+                    return `0${item}`;
+                }
+                return item;
+            },
+
+            getEndDate: function () {
+                let d = new Date();
+                d.setDate(d.getDate() + 5);
+                const item = d.getDate();
+                console.log('item:', item);
+                if (item < 10) {
+                    return `0${item}`;
+                }
+                return item;
+            },
+            getEndMonth: function () {
+                let d = new Date();
+                d.setDate(d.getDate() + 5);
+                const item = d.getMonth();
+                console.log('item:', item);
+                if (item < 10) {
+                    return `0${item}`;
+                }
+                return item;
+            },
+            getEndYear: function () {
+                let d = new Date();
+                d.setDate(d.getDate() + 5);
+                const item = d.getFullYear();
+                console.log('item:', item);
+                if (item < 10) {
+                    return `0${item}`;
+                }
+                return item;
+            },
+
         },
+        // methods: {
+        //     getDates: function (element) {
+        //         let item = element;
+        //         if(item < 10) {
+        //             return `0${item}`;
+        //         }
+        //         return item;
+        //     }
+        // }
+
+
     }
-
-
-
 </script>
 
 <style lang="scss">
   @import '../../varible.scss';
-
-  .date-start{
+  .date-start {
     background-color: $main-color-white;
     h3 {
       text-align: center;

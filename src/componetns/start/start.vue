@@ -1,13 +1,16 @@
 <template>
-  <div class="start">
-    <img class="start__img" src="../../assets/img/Logo.svg" alt="logo">
-    <p class="start__p">{{textNormal}}<span class="start__p--bold">{{textBold}}</span>
-      <span class="start__p--country">
+  <div class="head">
+    <div class="start">
+      <img class="start__img" src="../../assets/img/Logo.svg" alt="logo">
+      <p class="start__p">{{textNormal}}<span class="start__p--bold">{{textBold}}</span>
+        <span class="start__p--country">
         {{countryName}}
       <img src="../../assets/img/roman.png" alt="Румыния">
     </span>
-    </p>
+      </p>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -30,8 +33,8 @@
   @import '../../varible.scss';
   .start {
     display: flex;
-    margin: 0 auto;
-    max-width: $mobile;
+    justify-content: center;
+    background-color: $bg-color-master;
     &__img {
       max-width: 30px;
     }
