@@ -93,7 +93,7 @@
     &__cal-text {
       width: 279px;
       margin: 0 auto;
-      @include textLine(16px, 19px, center, $button-color-green);
+      @include textLine(16px, 19px, center, $main-color-black);
     }
     &__timer {
       width: 279px;

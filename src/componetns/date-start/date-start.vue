@@ -75,11 +75,9 @@
     margin: 0 auto;
     background-color: $main-color-white;
     h3 {
-      text-align: center;
       padding: 3px 0;
-      font-size: 12px;
+      @include textLine(12px, 14px, center, $text-color-blue);
       font-weight: bold;
-      color: $text-color-blue;
       span {
         color: $text-color-green;
       }

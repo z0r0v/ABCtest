@@ -20,9 +20,6 @@
   .you-are-selected {
     width: 311px;
     margin: 0 auto;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    color: $text-color-plum;
+    @include textLine(16px, 19px, center, $text-color-plum);
   }
 </style>

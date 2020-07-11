@@ -41,9 +41,7 @@
     &__p {
       width: 250px;
       margin-left: 10px;
-      font-size: 11px;
-      line-height: 13px;
-      color: $text-color-plum;
+      @include textLine(11px, 13px, left, $text-color-plum)
       &--bold {
         font-weight: bold;
       }

@@ -18,12 +18,10 @@
   .cong {
     margin-top: 89px;
     margin-bottom: 52px;
-    font-size: 30px;
-    line-height: 35px;
+
+    @include textLine(30px, 35px, center,  $main-color-white);
     font-weight: bold;
-    text-align: center;
     text-transform: uppercase;
-    color: $main-color-white;
   }
 
 </style>

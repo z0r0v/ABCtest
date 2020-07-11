@@ -20,11 +20,8 @@
   .get-euros {
     margin-top: 33px;
     margin-bottom: 87px;
-    font-size: 23px;
+    @include textLine(23px, 28px, center, $main-color-white);
     font-weight: bold;
-    text-align: center;
-    color: $main-color-white;
-    line-height: 28px;
     text-transform: uppercase;
     span {
       display: block;
