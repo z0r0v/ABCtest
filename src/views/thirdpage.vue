@@ -55,8 +55,6 @@
                     let m = (sec - h * 3600) / 60 ^ 0;
                     let s = sec - h * 3600 - m * 60;
                     this.paseTime = `${h}:${m}:${s}`;
-                    console.log(paseTime);
-
                 }, 1000)
             },
             stopTimer() {
