@@ -33,3 +33,9 @@ $app-font: 'Roboto';
   text-align: $ta;
   color: $color;
 }
+
+%flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

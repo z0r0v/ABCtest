@@ -58,14 +58,12 @@
     }
   }
   .circle-box {
-    display: flex;
     width: 270px;
     margin: 51px auto 71px auto;
+    display: flex;
     justify-content: space-between;
     .circle-box__circle {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @extend %flex-centered;
       width: 22.22px;
       height: 22.22px;
       border-radius: 50% 50%;
@@ -80,10 +78,9 @@
     }
   }
   .buttons-box {
-    display: flex;
-    justify-content: center;
+    @extend %flex-centered;
     flex-direction: column;
-    align-items: center;
+
     &__button {
       width: 259px;
       height: 48px;
