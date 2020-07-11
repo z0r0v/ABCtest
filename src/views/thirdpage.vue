@@ -107,6 +107,8 @@
       border: 1px solid $border-color-lite-brown;
       border-radius: 10px;
       &--h3 {
+        width: 230px;
+        margin: 8px auto;
         font-weight: bold;
         @include textLine(16px, 19px, center, $main-color-black);
       }
