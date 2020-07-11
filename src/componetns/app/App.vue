@@ -28,5 +28,6 @@
     font: inherit;
     color: inherit;
     background-color: transparent;
+    cursor: pointer;
   }
 </style>

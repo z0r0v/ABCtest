@@ -25,15 +25,12 @@ $bg-gradient-grey: linear-gradient(180deg, #0D9BEA 0%, #E2E2E2 0.01%, #BDBDBD 10
 $bg-gradient-green: linear-gradient(345.42deg, #2F9E31 -28.42%, #1A821C 92.44%, #01421F 165%);
 //fonts
 $app-font: 'Roboto';
-
-
 @mixin textLine($fz, $lh, $ta, $color) {
   font-size: $fz;
   line-height: $lh;
   text-align: $ta;
   color: $color;
 }
-
 %flex-centered {
   display: flex;
   justify-content: center;
