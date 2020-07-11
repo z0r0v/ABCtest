@@ -16,58 +16,56 @@
         computed: {
             getDate: function () {
                 let item = this.startDay.getDate();
-                if (item < 10) {
-                    return `0${item}`;
-                }
+                this.checkedDate(item);
                 return item;
             },
             getMonth: function () {
                 let item = this.startDay.getMonth();
-                if (item < 10) {
-                    return `0${item}`;
-                }
+                item = this.checkedDate(item);
                 return item;
+
             },
             getYear: function () {
                 let item = this.startDay.getFullYear();
-                if (item < 10) {
-                    return `0${item}`;
-                }
+                item = this.checkedDate(item);
                 return item;
             },
 
             getEndDate: function () {
-                let d = new Date();
-                d.setDate(d.getDate() + 5);
-                const item = d.getDate();
-                console.log('item:', item);
-                if (item < 10) {
-                    return `0${item}`;
-                }
+                const d = this.calcDate();
+                let item = d.getDate();
+                item = this.checkedDate(item);
                 return item;
             },
             getEndMonth: function () {
-                let d = new Date();
-                d.setDate(d.getDate() + 5);
-                const item = d.getMonth();
-                console.log('item:', item);
-                if (item < 10) {
-                    return `0${item}`;
-                }
+                const d = this.calcDate();
+                let item = d.getMonth();
+                item = this.checkedDate(item);
                 return item;
             },
             getEndYear: function () {
-                let d = new Date();
-                d.setDate(d.getDate() + 5);
-                const item = d.getFullYear();
-                console.log('item:', item);
-                if (item < 10) {
-                    return `0${item}`;
-                }
+                const d = this.calcDate();
+                let item = d.getFullYear();
+                item = this.checkedDate(item);
                 return item;
             },
 
         },
+        methods: {
+            checkedDate(item) {
+                console.log(item);
+                if (item < 10) {
+                    return `0${item}`;
+                }
+                return item;
+            },
+            calcDate() {
+                let d = new Date();
+                d.setDate(d.getDate() + 5);
+                return d
+            }
+        }
+
     }
 </script>
 
