@@ -19,7 +19,6 @@
 <script>
     import getEuros from '../componetns/get-euros/get-euros'
     import cong from "../componetns/congr/cong";
-
     export default {
         name: "thirdpage",
         data() {
@@ -89,25 +88,17 @@
       width: 279px;
       margin: 0 auto 33px auto;
       font-weight: bold;
-      font-size: 14px;
-      line-height: 16px;
-      text-align: center;
-      color: $button-color-green;
+      @include textLine(14px, 16px, center, $button-color-green);
     }
     &__cal-text {
       width: 279px;
       margin: 0 auto;
-      font-size: 16px;
-      line-height: 19px;
-      text-align: center;
+      @include textLine(16px, 19px, center, $button-color-green);
     }
     &__timer {
-      margin: 0 auto;
-      text-align: center;
       width: 279px;
-      font-size: 12px;
-      line-height: 14px;
-      color: $main-color-red;
+      margin: 0 auto;
+      @include textLine(12px, 14px, center, $main-color-red);
     }
     &__qyt-lim-box {
       width: 300px;
@@ -117,14 +108,10 @@
       border-radius: 10px;
       &--h3 {
         font-weight: bold;
-        text-align: center;
-        font-size: 16px;
-        line-height: 19px;
+        @include textLine(16px, 19px, center, $main-color-black);
       }
       &--p {
-        text-align: center;
-        font-size: 16px;
-        line-height: 19px;
+        @include textLine(16px, 19px, center, $main-color-black);
       }
     }
     &__button {

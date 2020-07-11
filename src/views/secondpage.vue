@@ -53,9 +53,7 @@
     h2 {
       width: 279px;
       margin: 0 auto 61px auto;
-      font-size: 18px;
-      line-height: 21px;
-      text-align: center;
+      @include textLine(18px, 21px, center, $main-color-black);
       font-weight: normal;
     }
   }
