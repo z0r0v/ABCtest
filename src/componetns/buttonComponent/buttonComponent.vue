@@ -1,14 +1,14 @@
 <template>
   <form action="/secondPage">
-  <button class="button" type="submit">
-    {{buttonText}}
-  </button>
+    <button class="button" type="submit">
+      {{buttonText}}
+    </button>
   </form>
 </template>
 
 <script>
     export default {
-        name: "button",
+        name: "buttonComponent",
         data() {
             return {
                 buttonText: 'Принять участие',
@@ -23,14 +23,13 @@
   .button {
     position: relative;
     display: block;
-    width:  276px;
+    width: 276px;
     height: 48px;
     margin: 0 auto;
     border-radius: 6px;
     box-shadow: 0 2px 0 0 $button-color-shadow;
     background: $button-color-green;
     color: $main-color-white;
-
     &::after {
       position: absolute;
       content: ' ';
@@ -41,7 +40,5 @@
       transform: translate(-50%, 0);
       background: url("../../assets/img/icon_ arrow.svg");
     }
-
   }
-
 </style>

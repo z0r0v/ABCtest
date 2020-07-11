@@ -6,7 +6,7 @@
     <getEuros></getEuros>
     <div class="footer-box">
       <attention></attention>
-      <buttons></buttons>
+      <buttonComponent></buttonComponent>
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@
     import selected from '../componetns/you-are-selected/you-are-selected.vue'
     import getEuros from '../componetns/get-euros/get-euros.vue'
     import attention from "../componetns/attention/attention.vue";
-    import buttons from "../componetns/button/button.vue";
+    import buttonComponent from "../componetns/buttonComponent/buttonComponent.vue";
 
     export default {
         name: "firtspage",
@@ -27,7 +27,7 @@
             selected: selected,
             getEuros: getEuros,
             attention: attention,
-            buttons: buttons,
+            buttonComponent: buttonComponent,
         }
     }
 </script>

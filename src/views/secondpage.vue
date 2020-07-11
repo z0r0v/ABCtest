@@ -10,13 +10,13 @@
     <h2>{{text}}</h2>
     <form class="buttons-box" action="/thirdpage">
       <button class="buttons-box__button" type="submit">
-        {{button1}}
+        {{buttonYes}}
       </button>
       <button class="buttons-box__button" type="submit">
-        {{button2}}
+        {{buttonNo}}
       </button>
       <button class="buttons-box__button" type="submit">
-        {{button3}}
+        {{buttonAll}}
       </button>
     </form>
   </div>
@@ -28,9 +28,9 @@
         data() {
             return {
                 text: 'Нуждаетесь ли Вы в дополнительных деньгах?',
-                button1: 'Да',
-                button2: 'Нет',
-                button3: 'Затрудняюсь ответить',
+                buttonYes: 'Да',
+                buttonNo: 'Нет',
+                buttonAll: 'Затрудняюсь ответить',
 
             }
         },

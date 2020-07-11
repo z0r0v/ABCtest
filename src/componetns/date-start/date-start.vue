@@ -53,7 +53,6 @@
         },
         methods: {
             checkedDate(item) {
-                console.log(item);
                 if (item < 10) {
                     return `0${item}`;
                 }
