@@ -58,7 +58,7 @@
       </div>
       <div class="third-page-content__button">
         <button>
-          {{buttText}}
+          <span>{{buttText}}</span>
         </button>
       </div>
     </div>
@@ -134,7 +134,7 @@
                     let h = sec / 3600 ^ 0;
                     let m = (sec - h * 3600) / 60 ^ 0;
                     let s = sec - h * 3600 - m * 60;
-                    this.paseTime = `${h}:${m}:${s}`;
+                    this.paseTime = `${this.checkedDate(h)}:${this.checkedDate(m)}:${this.checkedDate(s)}`;
                 }, 1000)
             },
             stopTimer() {
@@ -163,11 +163,14 @@
 </script>
 <style lang="scss">
   @import '../../varible.scss';
-
   body {
+    height: 812px;
     margin: 0;
     background-color: $bg-color-master;
     font-family: $app-font;
+    @include mq($from: desktop) {
+      height: 700px;
+    }
   }
   button {
     padding: 0;
@@ -180,7 +183,6 @@
   p, h2, h3 {
     margin: 0;
   }
-
   .first-content {
     .cong {
       margin-bottom: 44px;
@@ -198,14 +200,14 @@
       }
     }
     .footer-box {
-      width:375px;
+      width: 375px;
       margin: 0 auto;
       padding-top: 42px;
       padding-bottom: 46px;
       border-radius: 30px 30px 0 0;
       background-color: $main-color-white;
       @include mq($from: desktop) {
-        width:320px;
+        width: 320px;
         padding-top: 15px;
         border-radius: 20px 20px 0 0;
       }
@@ -215,11 +217,9 @@
       margin: 0 auto;
       @include textLine(16px, 19px, center, $text-color-plum);
     }
-
     .footer-box__items {
       width: 300px;
       margin: 0 auto;
-
       .footer-box__items--item {
         position: relative;
         margin-bottom: 22px;
@@ -258,13 +258,12 @@
         }
       }
       .second {
-          p {
-            padding-top: 10px;
-            @include mq($from: desktop) {
-              padding-top: 8px;
-            }
+        p {
+          padding-top: 10px;
+          @include mq($from: desktop) {
+            padding-top: 8px;
           }
-
+        }
         &::before {
           background: url("../../assets/img/icon_ money.svg");
         }
@@ -328,7 +327,6 @@
       @include textLine(18px, 21px, center, $main-color-black);
       font-weight: normal;
     }
-
     .circle-box {
       width: 270px;
       margin: 51px auto 71px auto;
@@ -355,6 +353,7 @@
       &__button {
         width: 259px;
         height: 48px;
+        font-weight: 500;
         margin-bottom: 22px;
         border-radius: 6px;
         background-color: $bg-color-button-grey;
@@ -364,17 +363,29 @@
   .third-page-content {
     .cong {
       color: $button-color-green;
-      margin: 75px auto 38px auto;
+      margin: 72px auto 34px auto;
+      font-size: 25px;
+      @include mq($from: desktop) {
+        margin-top: 53px;
+        margin-bottom: 17px;
+      }
     }
     .get-euros {
       color: $main-color-black;
-      margin: 36px auto 40px auto;
+      margin: 36px auto 36px auto;
+      @include mq($from: desktop) {
+        margin-top: 25px;
+        margin-bottom: 27px;
+      }
     }
     &__number-text {
       width: 279px;
-      margin: 0 auto 33px auto;
+      margin: 0 auto 38px auto;
       font-weight: bold;
       @include textLine(14px, 16px, center, $button-color-green);
+      @include mq($from: desktop) {
+        margin-bottom: 32px;
+      }
     }
     &__cal-text {
       width: 279px;
@@ -388,17 +399,22 @@
     }
     &__qyt-lim-box {
       width: 300px;
-      margin: 41px auto 50px auto;
+      margin: 43px auto 50px auto;
       background-color: $bg-color-lite-brown;
       border: 1px solid $border-color-lite-brown;
       border-radius: 10px;
+      @include mq($from: desktop) {
+        margin-top: 26px;
+        margin-bottom: 44px;
+      }
       &--h3 {
         width: 230px;
-        margin: 8px auto;
+        margin: 6px auto;
         font-weight: bold;
         @include textLine(16px, 19px, center, $main-color-black);
       }
       &--p {
+        padding-bottom: 8px;
         @include textLine(16px, 19px, center, $main-color-black);
       }
     }
@@ -409,12 +425,22 @@
       button {
         position: relative;
         display: block;
-        width: 229.19px;
+        width: 213.19px;
         height: 63.53px;
-        margin-left: 25px;
+        margin-left: 33px;
         background: $bg-gradient-green;
         color: $main-color-white;
         border-radius: 10px;
+        span {
+          display: block;
+          width: 127px;
+          padding-left: 47px;
+          line-height: 20px;
+          font-size: 22px;
+          font-weight: bold;
+          letter-spacing: 0.8px;
+          text-align: left;
+        }
         &::before {
           position: absolute;
           width: 50px;

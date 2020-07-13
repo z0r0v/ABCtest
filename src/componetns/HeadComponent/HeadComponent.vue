@@ -36,6 +36,7 @@
     justify-content: center;
     background-color: $bg-color-master;
     transform: translate(-13px, 0px);
+    box-shadow: 24px 0 0 0 $bg-color-master;
     @include mq($from: desktop) {
       transform: translate(-2px, 0px);
     }
