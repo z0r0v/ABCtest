@@ -1,9 +1,11 @@
 @import "~sass-mq";
+
 $mq-breakpoints: (
-  mobile: 320px,
-  desktop: 980px,
-);
-$mobile: 320px;
+  mobile: 375px,
+  desktop: 1152px,
+)!default;
+
+
 //colors
 $main-color-black: #000000;
 $main-color-red: #B81B1E;

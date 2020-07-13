@@ -35,12 +35,25 @@
     display: flex;
     justify-content: center;
     background-color: $bg-color-master;
+    transform: translate(-13px, 0px);
+    @include mq($from: desktop) {
+      transform: translate(-2px, 0px);
+    }
+
     &__img {
-      max-width: 30px;
+      width: 43px;
+      height: 43px;
+      padding: 9px;
     }
     &__p {
+
       width: 250px;
-      margin-left: 10px;
+      margin-top: 13px;
+      img {
+        margin-left: 7px;
+      }
+
+
       @include textLine(11px, 13px, left, $text-color-plum)
       &--bold {
         font-weight: bold;

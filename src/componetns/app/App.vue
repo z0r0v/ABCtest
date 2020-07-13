@@ -77,10 +77,7 @@
                 attentionTextNext: 'Сегодня последний день, когда Вам доступна свободная регистрация!:',
                 importantInformation: 'Для получения важной информации, просим ответить Вас всего на 3 простых вопроса:',
                 buttonText: 'Принять участие',
-                link: '/secondPage',
                 text: 'Дата проведения: c ',
-                startDay: new Date(),
-                screen: 1,
                 text2: 'Нуждаетесь ли Вы в дополнительных деньгах?',
                 buttonYes: 'Да',
                 buttonNo: 'Нет',
@@ -94,7 +91,8 @@
                 currentTime: 10800,
                 timer: null,
                 paseTime: '03:00:00',
-
+                startDay: new Date(),
+                screen: 1,
             }
         },
         components: {
@@ -165,6 +163,7 @@
 </script>
 <style lang="scss">
   @import '../../varible.scss';
+
   body {
     margin: 0;
     background-color: $bg-color-master;
@@ -178,45 +177,79 @@
     background-color: transparent;
     cursor: pointer;
   }
+  p, h2, h3 {
+    margin: 0;
+  }
+
   .first-content {
+    .cong {
+      margin-bottom: 44px;
+      @include mq($from: desktop) {
+        margin-top: 44px;
+        margin-bottom: 33px;
+      }
+    }
+    .get-euros {
+      margin-top: 36px;
+      margin-bottom: 82px;
+      @include mq($from: desktop) {
+        margin-top: 28px;
+        margin-bottom: 35px;
+      }
+    }
     .footer-box {
+      width:375px;
+      margin: 0 auto;
       padding-top: 42px;
       padding-bottom: 46px;
       border-radius: 30px 30px 0 0;
       background-color: $main-color-white;
+      @include mq($from: desktop) {
+        width:320px;
+        padding-top: 15px;
+        border-radius: 20px 20px 0 0;
+      }
     }
     .you-are-selected {
       width: 311px;
       margin: 0 auto;
       @include textLine(16px, 19px, center, $text-color-plum);
     }
-    .footer-box {
-      margin: 0 auto;
-      width: 320px;
-    }
+
     .footer-box__items {
-      margin: 0 auto;
       width: 300px;
+      margin: 0 auto;
+
       .footer-box__items--item {
         position: relative;
         margin-bottom: 22px;
-        padding-left: 43px;
+        padding-left: 39px;
         border: 1px solid $border-color-grey;
         border-radius: 10px;
+        @include mq($from: desktop) {
+          padding-left: 42px;
+        }
         &::before {
           position: absolute;
           content: ' ';
           top: 6px;
-          left: 7px;
+          left: 3px;
           width: 29px;
           height: 29px;
+          @include mq($from: desktop) {
+            left: 6px;
+          }
         }
         h3, p {
           font-size: 14px;
           line-height: 16px;
         }
         h3 {
+          padding-top: 10px;
           font-weight: bold;
+        }
+        p {
+          padding-bottom: 12px;
         }
       }
       .first {
@@ -225,6 +258,13 @@
         }
       }
       .second {
+          p {
+            padding-top: 10px;
+            @include mq($from: desktop) {
+              padding-top: 8px;
+            }
+          }
+
         &::before {
           background: url("../../assets/img/icon_ money.svg");
         }
@@ -235,11 +275,16 @@
       display: block;
       width: 276px;
       height: 48px;
-      margin: 0 auto;
+      margin: 43px auto 0;
       border-radius: 6px;
+      font-weight: 500;
+      font-size: 18px;
       box-shadow: 0 2px 0 0 $button-color-shadow;
       background: $button-color-green;
       color: $main-color-white;
+      @include mq($from: desktop) {
+        margin: 66px auto 4px;
+      }
       &::after {
         position: absolute;
         content: ' ';
@@ -252,9 +297,13 @@
       }
     }
     .date-start {
-      width: 320px;
-      margin: 0 auto;
+      width: 375px;
+      margin: 4px auto;
       background-color: $main-color-white;
+      @include mq($from: desktop) {
+        width: 320px;
+        margin-top: 7px;
+      }
       h3 {
         padding: 3px 0;
         @include textLine(12px, 14px, center, $text-color-blue);
