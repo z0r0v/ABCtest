@@ -61,6 +61,12 @@
           <span>{{buttText}}</span>
         </button>
       </div>
+
+      <div class="coment-text">
+        <p>Doar pentru adulți. Acesta este un serviciu de divertisment care trebuie acceptat și interpretat ca atare. Accesând serviciul declarați că sunteți de acord cu acești termeni și condiții și că aveți peste 18 ani și aveți acordul titularului cartelei. Cost serviciu: 1.7euro + tva/minut în Orange, Vodafone, Telekom fix și mobil. Program non-stop. Apăsând pe butonul de pe pagina serviciului veți fi redirecționat către căsuța de apelare cu numărul cu suprataxă predefinit. Furnizor: ABCMobile OÜ; Reg № 14710834; Adresa: Estonia, Tallinn, Strada St. Petersburg 71-318, 11415. Support@abcmobile.com. Info serviciu voce: 0318260010, luni-vineri, 9:00-18:00.
+          Affiliate: mobstra.com
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -454,5 +460,23 @@
         }
       }
     }
+
+
+.coment-text {
+  width: 294px;
+  height: calc(7px * 3);
+  margin: 0 auto;
+  padding: 5px;
+  font-size: 9px;
+  line-height: 14px;
+  letter-spacing: 5px;
+  overflow: hidden;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+
   }
 </style>
