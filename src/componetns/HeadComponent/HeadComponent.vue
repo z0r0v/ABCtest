@@ -1,9 +1,9 @@
 <template>
-  <div class="head">
-    <div class="start">
-      <img class="start__img" src="../../assets/img/Logo.svg" alt="logo">
-      <p class="start__p">{{textNormal}}<span class="start__p--bold">{{textBold}}</span>
-        <span class="start__p--country">
+  <div class="headComponent">
+    <div class="headComponent">
+      <img class="headComponent__img" src="../../assets/img/Logo.svg" alt="logo">
+      <p class="headComponent__p">{{textNormal}}<span class="start__p--bold">{{textBold}}</span>
+        <span class="HeadComponent__p--country">
         {{countryName}}
       <img src="../../assets/img/roman.png" alt="Румыния">
     </span>
@@ -15,7 +15,7 @@
 
 <script>
     export default {
-        name: 'start',
+        name: 'HeadComponent',
         data() {
             return {
 
@@ -31,7 +31,7 @@
 
 <style lang="scss">
   @import '../../varible.scss';
-  .start {
+  .headComponent {
     display: flex;
     justify-content: center;
     background-color: $bg-color-master;

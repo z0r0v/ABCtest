@@ -1,18 +1,166 @@
 <template>
   <div id="app">
-    <start></start>
-    <router-view></router-view>
+    <HeadComponent></HeadComponent>
+    <div v-if="screen === 1" class="first-content">
+      <div class="date-start">
+        <h3>{{text}} {{getDate.start}} по <span>{{getDate.end}}</span></h3>
+      </div>
+      <cong></cong>
+      <p class="you-are-selected">
+        {{selected}}
+      </p>
+      <getEuros></getEuros>
+      <div class="footer-box">
+        <div class="footer-box__items">
+          <div class="footer-box__items--item first">
+            <h3>{{attentionText}}</h3>
+            <p>{{attentionTextNext}}</p>
+          </div>
+          <div class="footer-box__items--item second">
+            <p>{{importantInformation}}</p>
+          </div>
+        </div>
+        <button v-on:click="changeScreen()" class="button">
+          {{buttonText}}
+        </button>
+      </div>
+    </div>
+    <div v-if="screen === 2" class="second-content">
+      <div class="circle-box">
+        <div class="circle-box__circle blue">1</div>
+        <hr>
+        <div class="circle-box__circle gray">2</div>
+        <hr>
+        <div class="circle-box__circle gray">3</div>
+      </div>
+      <h2>{{text2}}</h2>
+      <div class="buttons-box ">
+        <button v-on:click="changeScreen()" class="buttons-box__button">
+          {{buttonYes}}
+        </button>
+        <button v-on:click="changeScreen()" class="buttons-box__button">
+          {{buttonNo}}
+        </button>
+        <button v-on:click="changeScreen()" class="buttons-box__button">
+          {{buttonAll}}
+        </button>
+      </div>
+    </div>
+    <div v-if="screen === 3" class="third-page-content">
+      <cong></cong>
+      <p class="third-page-content__number-text">{{numberRegestrText}}</p>
+      <p class="third-page-content__cal-text">{{calMobText}}</p>
+      <getEuros></getEuros>
+      <p class="third-page-content__timer">{{timerText}}<span>{{paseTime}}</span></p>
+      <div class="third-page-content__qyt-lim-box">
+        <h3 class="third-page-content__qyt-lim-box--h3">{{qytLimH}}</h3>
+        <p class="third-page-content__qyt-lim-box--p">{{qytLimP}}</p>
+      </div>
+      <div class="third-page-content__button">
+        <button>
+          {{buttText}}
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 <script>
-    import start from '../start/start.vue'
+    import getEuros from '../get-euros/get-euros.vue'
+    import HeadComponent from '../HeadComponent/HeadComponent.vue'
+    import cong from '../congr/cong.vue'
+
     export default {
         data() {
-            return {}
+            return {
+                selected: 'Вы были отобраны для участия в финансовом эксперименте:',
+                attentionText: 'Внимание:',
+                attentionTextNext: 'Сегодня последний день, когда Вам доступна свободная регистрация!:',
+                importantInformation: 'Для получения важной информации, просим ответить Вас всего на 3 простых вопроса:',
+                buttonText: 'Принять участие',
+                link: '/secondPage',
+                text: 'Дата проведения: c ',
+                startDay: new Date(),
+                screen: 1,
+                text2: 'Нуждаетесь ли Вы в дополнительных деньгах?',
+                buttonYes: 'Да',
+                buttonNo: 'Нет',
+                buttonAll: 'Затрудняюсь ответить',
+                numberRegestrText: 'Ваш номер телефона успешно зарегистрирован!',
+                calMobText: 'Позвонив со своего мобильного телефона, вы получите доступ к персональному аудиосообщению:',
+                timerText: 'Запись будет удалена через: ',
+                qytLimH: 'Количество участников строго ограничено.',
+                qytLimP: 'Звоните прямо сейчас, не упустите свой шанс!',
+                buttText: 'Звонить и слушать',
+                currentTime: 10800,
+                timer: null,
+                paseTime: '03:00:00',
+
+            }
         },
         components: {
-            start: start,
-        }
+            HeadComponent: HeadComponent,
+            cong: cong,
+            getEuros: getEuros,
+        },
+        computed: {
+            getDate() {
+                let limitDay = 5;
+                const date = this.startDay;
+                const day = date.getDate();
+                const month = date.getMonth();
+                const year = date.getFullYear();
+                const endDay = this.calcDate(limitDay).getDay();
+                const endMonth = this.calcDate(limitDay).getMonth();
+                const endYear = this.calcDate(limitDay).getFullYear();
+                const start = `${this.checkedDate(day)}.${this.checkedDate(month)}.${year}`;
+                const end = `${this.checkedDate(endDay)}.${this.checkedDate(endMonth)}.${endYear}`;
+                return {start, end};
+            },
+        },
+        methods: {
+            checkedDate(item) {
+                if (item < 10) {
+                    return `0${item}`;
+                }
+                return item;
+            },
+            calcDate(takeDays) {
+                let d = new Date();
+                d.setDate(d.getDate() + takeDays);
+                return d
+            },
+            startTimer() {
+                this.timer = setInterval(() => {
+                    this.currentTime--;
+                    let sec = this.currentTime;
+                    let h = sec / 3600 ^ 0;
+                    let m = (sec - h * 3600) / 60 ^ 0;
+                    let s = sec - h * 3600 - m * 60;
+                    this.paseTime = `${h}:${m}:${s}`;
+                }, 1000)
+            },
+            stopTimer() {
+                clearTimeout(this.timer)
+            },
+            changeScreen() {
+                document.body.style.backgroundColor = "#FFFFFF";
+                return this.screen++
+
+            },
+        },
+        mounted() {
+            this.startTimer()
+        },
+        destroyed() {
+            this.stopTimer()
+        },
+        watch: {
+            currentTime(time) {
+                if (time === 0) {
+                    this.stopTimer()
+                }
+            }
+        },
     }
 </script>
 <style lang="scss">
@@ -29,5 +177,207 @@
     color: inherit;
     background-color: transparent;
     cursor: pointer;
+  }
+  .first-content {
+    .footer-box {
+      padding-top: 42px;
+      padding-bottom: 46px;
+      border-radius: 30px 30px 0 0;
+      background-color: $main-color-white;
+    }
+    .you-are-selected {
+      width: 311px;
+      margin: 0 auto;
+      @include textLine(16px, 19px, center, $text-color-plum);
+    }
+    .footer-box {
+      margin: 0 auto;
+      width: 320px;
+    }
+    .footer-box__items {
+      margin: 0 auto;
+      width: 300px;
+      .footer-box__items--item {
+        position: relative;
+        margin-bottom: 22px;
+        padding-left: 43px;
+        border: 1px solid $border-color-grey;
+        border-radius: 10px;
+        &::before {
+          position: absolute;
+          content: ' ';
+          top: 6px;
+          left: 7px;
+          width: 29px;
+          height: 29px;
+        }
+        h3, p {
+          font-size: 14px;
+          line-height: 16px;
+        }
+        h3 {
+          font-weight: bold;
+        }
+      }
+      .first {
+        &::before {
+          background: url("../../assets/img/icon_attantion.svg");
+        }
+      }
+      .second {
+        &::before {
+          background: url("../../assets/img/icon_ money.svg");
+        }
+      }
+    }
+    .button {
+      position: relative;
+      display: block;
+      width: 276px;
+      height: 48px;
+      margin: 0 auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 0 0 $button-color-shadow;
+      background: $button-color-green;
+      color: $main-color-white;
+      &::after {
+        position: absolute;
+        content: ' ';
+        width: 24px;
+        height: 16px;
+        top: 36%;
+        right: 0;
+        transform: translate(-50%, 0);
+        background: url("../../assets/img/icon_ arrow.svg");
+      }
+    }
+    .date-start {
+      width: 320px;
+      margin: 0 auto;
+      background-color: $main-color-white;
+      h3 {
+        padding: 3px 0;
+        @include textLine(12px, 14px, center, $text-color-blue);
+        font-weight: bold;
+        span {
+          color: $text-color-green;
+        }
+      }
+    }
+  }
+  .second-content {
+    hr {
+      height: 4px;
+      width: 100px;
+      margin: 9px auto;
+      background-color: $bg-color-hr-grey;
+      border: none;
+    }
+    h2 {
+      width: 279px;
+      margin: 0 auto 61px auto;
+      @include textLine(18px, 21px, center, $main-color-black);
+      font-weight: normal;
+    }
+
+    .circle-box {
+      width: 270px;
+      margin: 51px auto 71px auto;
+      display: flex;
+      justify-content: space-between;
+      .circle-box__circle {
+        @extend %flex-centered;
+        width: 22.22px;
+        height: 22.22px;
+        border-radius: 50% 50%;
+        border: 1px solid $border-color-grey;
+        color: $main-color-white;
+      }
+      .blue {
+        background: $bg-gradient-blue;
+      }
+      .gray {
+        background: $bg-gradient-grey;
+      }
+    }
+    .buttons-box {
+      @extend %flex-centered;
+      flex-direction: column;
+      &__button {
+        width: 259px;
+        height: 48px;
+        margin-bottom: 22px;
+        border-radius: 6px;
+        background-color: $bg-color-button-grey;
+      }
+    }
+  }
+  .third-page-content {
+    .cong {
+      color: $button-color-green;
+      margin: 75px auto 38px auto;
+    }
+    .get-euros {
+      color: $main-color-black;
+      margin: 36px auto 40px auto;
+    }
+    &__number-text {
+      width: 279px;
+      margin: 0 auto 33px auto;
+      font-weight: bold;
+      @include textLine(14px, 16px, center, $button-color-green);
+    }
+    &__cal-text {
+      width: 279px;
+      margin: 0 auto;
+      @include textLine(16px, 19px, center, $main-color-black);
+    }
+    &__timer {
+      width: 279px;
+      margin: 0 auto;
+      @include textLine(12px, 14px, center, $main-color-red);
+    }
+    &__qyt-lim-box {
+      width: 300px;
+      margin: 41px auto 50px auto;
+      background-color: $bg-color-lite-brown;
+      border: 1px solid $border-color-lite-brown;
+      border-radius: 10px;
+      &--h3 {
+        width: 230px;
+        margin: 8px auto;
+        font-weight: bold;
+        @include textLine(16px, 19px, center, $main-color-black);
+      }
+      &--p {
+        @include textLine(16px, 19px, center, $main-color-black);
+      }
+    }
+    &__button {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 52px;
+      button {
+        position: relative;
+        display: block;
+        width: 229.19px;
+        height: 63.53px;
+        margin-left: 25px;
+        background: $bg-gradient-green;
+        color: $main-color-white;
+        border-radius: 10px;
+        &::before {
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          top: -3px;
+          left: -33px;
+          content: ' ';
+          background: url("../../assets/img/icon_call.svg") no-repeat center, $bg-gradient-green;
+          border: 11px solid #278c29;
+          border-radius: 50% 50%;
+        }
+      }
+    }
   }
 </style>
